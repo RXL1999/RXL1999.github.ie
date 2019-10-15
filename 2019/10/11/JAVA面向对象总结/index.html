@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>JAVA面向对象总结 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content>
+  <meta name="description" content>
+  <script id="hexo-configurations">
+  var CONFIG = {
+    root: '/',
+    theme: 'hexo-theme-lx-master',
+    version: '1.4.5',
+    localsearch:{
+      "enable": false,
+      "trigger": "auto",
+      "top_n_per_article": 1,
+      "unescape": false,
+      "preload": false
+      },
+    path: '-'
+  };
+</script>
+
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/main.css">
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/jquery.jside.menu.js"></script>
+	<script>
+	$(document).ready(function(){
+	$(".menu-container").jSideMenu({
+	    jSidePosition: "position-right",
+	    jSideSticky: true,
+	    jSideSkin: "endless-river",
+	     });
+	}); 
+	</script>
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300|Noto+Serif+SC&amp;display=swap">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+</head>
+<body>
+<div class="single">
+<div id="page">
+<div id="lx-aside" style="background-image: url(/images/page-cover.jpg)" data-stellar-background-ratio="0.5">
+  <div class="overlay">
+  <div class="page-title">
+    <div class="avatar"><a href="/"><img src="/images/person_1.jpg"></a></div>
+    <span>2019-10-11</span>
+    <h2>JAVA面向对象总结</h2>
+    
+    </div>
+</div>
+</div>
+<div id="lx-main-content">
+  <div class="lx-post">
+    <div class="lx-entry padding">
+      <div>
+        <h1 id="1-什么是类-什么是对象"><a href="#1-什么是类-什么是对象" class="headerlink" title="1,什么是类?什么是对象?"></a>1,什么是类?什么是对象?</h1><p>简单来说,类是抽象出某一类事物的行为和特征,并进行的封装,特征称之为属性,行为称之为方法;</p>
+<p>对象就是这一类的具体实例,对象拥有这个类的所有属性和方法</p>
+<p>举个例子:</p>
+<p>所有的人是一个类,人所具有的属性:身高和体重…,人具有的方法:吃饭,睡觉..</p>
+<p>具体到某一个人是一个对象,比如小明就是一个对象,小明有身高,体重,可以吃饭,可以睡觉..</p>
+<p>java编程思想中是这么描述对象的:</p>
+<p>对象具有状态,行为,和标识.这意味着每一个对象都可以拥有内部数据(它们给出了该对象的状态)和方法(它们产生行为),并且每一个对象都可以与其他对象区分开来,具体来说,就是每一个对象在内存中都有一个唯一的地址.</p>
+<p>2,什么是面向对象?为什么要面向对象?</p>
+<p>官方话:</p>
+<p>面向对象（Object Oriented）是一种新兴的程序设计方法，或者是一种新的程序设计规范(paradigm)，其基本思想是使用对象、类、继承、封装、多态等基本概念来进行程序设计。从现实世界中客观存在的事物（即对象）出发来构造软件系统，并且在系统构造中尽可能运用人类的自然思维方式。面向对象是为了解决系统的可维护性，可扩展性，可重用性….</p>
+<p>我的理解:</p>
+<p>首先,面向对象是一种设计程序的方式,是一种设计思想.</p>
+<p>其次,面向对象节省代码,思路清晰,便于扩展.你所创建出的对象就是给你提供服务的.</p>
+<p>3,面向对象的三大特征:</p>
+<p>一、封装</p>
+<p>　　 封装是实现面向对象程序设计的第一步，封装就是将属性和方法放在一个类中。对外提供服务时尽可能的隐藏对象内部细节，只保留有限的接口和方法;</p>
+<p>　　封装的意义：</p>
+<p>　　封装的意义在于保护或者防止代码（数据）被我们无意中破坏。在面向对象程序设计中属性被看作是一个中心的元素并且和使用它的方法结合的很密切，从而保护它不被其它的方法意外的修改。</p>
+<p>　　可以通过对类的成员设置一定的访问权限，实现类中成员的信息隐藏。</p>
+<p>​    private：类中限定为private的成员，只能被这个类本身访问。如果一个类的构造方法声明为private,则其它类不能生成该类的一个实例。</p>
+<p>​    default：类中不加任何访问权限限定的成员属于缺省的（default）访问状态，可以被这个类本身和同一个包中的类所访问。</p>
+<p>​    protected：类中限定为protected的成员，可以被这个类本身、它的子类（包括同一个包中以及不同包中的子类）和同一个包中的所有其他的类访问。</p>
+<p>​    public：类中限定为public的成员，可以被所有的类访问。 </p>
+<p>二, 继承</p>
+<p>Java的类可以分为三类：</p>
+<p>​    类：使用class定义，没有抽象方法</p>
+<p>​    抽象类：使用abstract class定义，可以有也可以没有抽象方法</p>
+<p>​    接口：使用inerface定义，只能有抽象方法,(也可以没有),接口里的变量默认使用public static final修饰</p>
+<p>在这三个类型之间存在如下关系：</p>
+<p>​    类可以extends：类、抽象类（必须实现所有抽象方法），但只能extends一个，可以implements多个接口（必须实现所有接口方法）—&gt;单继承多实现</p>
+<p>​    抽象类可以extends：类，抽象类（可全部、部分、或者完全不实现父类抽象方法），可以implements多个接口（可全部、部分、或者完全不实现接口方法）</p>
+<p>​    一个接口可以继承多个接口</p>
+<p>继承以后子类可以得到什么：</p>
+<p>​    子类直接拥有父类非private的属性和方法</p>
+<p>​    子类可以添加自己的属性和方法，即对父类进行扩展</p>
+<p>​    子类可以重写父类的方法</p>
+<p>关于构造方法：</p>
+<p>​    构造方法不能被继承，子类可以通过super()显式调用父类的构造方法</p>
+<p>​    创建子类对象时，编译器会自动调用父类的无参构造方法</p>
+<p>​    如果父类没有定义无参构造方法，子类必须在构造方法的第一行代码使用super()显式调用</p>
+<p>​    类默认拥有无参构造方法，如果定义了其他有参构造方法，则无参构造方法失效，所以父类没有定义无参构造方法，不是指父类没有写无参构造方法。　</p>
+<p>Java中通过super来实现对父类成员的访问，super用来引用当前对象的父类。super 的使用有三种情况：</p>
+<p>​    访问父类被隐藏的成员变量</p>
+<p>​    调用父类中被重写的方法</p>
+<p>​    调用父类的构造函数</p>
+<p>继承的意义：</p>
+<p>​    代码重用是一点，最重要的还是向上转型，即父类的引用变量可以指向子类对象，这是Java面向对象最重要特性多态的基础</p>
+<p>三, 多态</p>
+<p>在了解多态之前，先了解以下几点:</p>
+<p>什么是相同的方法：</p>
+<p>​    一个方法可以由：修饰符+返回值+方法名+参数+throw的异常+方法体6部分组成</p>
+<p>​    其中只有方法名和参数是唯一性标识，意即只要方法名和参数相同那他们就是相同的方法</p>
+<p>​    所谓参数相同，是指参数的个数，类型，顺序一致，其中任何一项不同都是不同的方法</p>
+<p>什么是重载：</p>
+<p>​    重载是指一个类里面（包括父类的方法）存在方法名相同，但是参数不一样的方法，参数不同可以是不同的参数个数、类型或顺序</p>
+<p>​    如果仅仅是修饰符、返回值、throw的异常不同，那这是2个相同的方法，编译都通不过，更不要说重载了</p>
+<p>什么是重写:</p>
+<p>​    子类中存在和父类相同的方法即为重写(有特殊情况,请注意下面重写的规则)，何谓相同方法请牢记前面的描述，方法名和参数相同，包括参数个数、类型、顺序</p>
+<p>重写的规则：</p>
+<p>​    子类不能覆盖父类private的方法，private对子类不可见，如果子类定义了一个和父类private方法相同的方法，实为新增方法</p>
+<p>   重写方法的修饰符权限一定要大于或等于被重写方法的修饰符权限(public &gt; protected &gt; default )</p>
+<p>​    重写抛出的异常需与父类相同或是父类异常的子类，或者重写方法干脆不写throws</p>
+<p>​    重写方法的返回值必须与被重写方法一致，否则编译报错</p>
+<p>​    静态方法不能被重写</p>
+<p>什么是多态?</p>
+<p>同一操作作用于不同的对象，可以产生不同的执行结果，这就是多态性。</p>
+<p>Java的多态性体现在两个方面：由方法重载实现的静态多态性（编译时多态）和方法重写实现的动态多态性（运行时多态）。</p>
+<p>​    编译时多态：在编译阶段，具体调用哪个被重载的方法，编译器会根据参数的不同来调用相应的方法。</p>
+<p>​    运行时多态：当父类引用引用指向子类对象时，被引用的对象的类型决定了调用谁的方法，这个被调用的方法必须是在父类中定义过的，也就是说被子类重写的方法</p>
+<p> 1 class Animal {</p>
+<p> 2     public void speak() {</p>
+<p> 3         System.out.println(“我是动物”);</p>
+<p> 4     }</p>
+<p> 5 }</p>
+<p> 6 </p>
+<p> 7 class Dog extends Animal {</p>
+<p> 8     public void speak() {</p>
+<p> 9         System.out.println(“汪汪…”);</p>
+<p>10     }</p>
+<p>11 }</p>
+<p>12 </p>
+<p>13 class Cat extends Animal {</p>
+<p>14     public void speak() {</p>
+<p>15         System.out.println(“喵喵…”);</p>
+<p>16     }</p>
+<p>17 }</p>
+<p>18 </p>
+<p>19 public class Test {</p>
+<p>20     public static void main(String args[]) {</p>
+<p>21         Animal animal = new Dog();</p>
+<p>22         animal.speak(); // 汪汪…</p>
+<p>23         animal = new Cat(); </p>
+<p>24         animal.speak();// 喵喵…</p>
+<p>25    }</p>
+<p>26 }</p>
+<p>稍微复杂一点的案例:</p>
+<p> 1 class Animal {</p>
+<p> 2     public void speak1() {</p>
+<p> 3         System.out.println(“我是动物..”);</p>
+<p> 4         speak2();</p>
+<p> 5     }</p>
+<p> 6     private void speak2() {</p>
+<p> 7         System.out.println(“我是一只凶猛的动物”);</p>
+<p> 8     }</p>
+<p> 9 }</p>
+<p>10 </p>
+<p>11 class Dog extends Animal {</p>
+<p>12     public void speak1(String name) {</p>
+<p>13         System.out.println(“汪汪…”);</p>
+<p>14     }</p>
+<p>15     public void speak2() {</p>
+<p>16         System.out.println(“我是一只泰迪”);</p>
+<p>17     }</p>
+<p>18 }</p>
+<p>19 </p>
+<p>20 public class Test {</p>
+<p>21     public static void main(String args[]) {</p>
+<p>22         Animal animal = new Dog();</p>
+<p>23         animal.speak1(); </p>
+<p>24         // 我是动物..</p>
+<p>25         // 我是一只凶猛的动物</p>
+<p>26     }</p>
+<p>27 }</p>
+<p>生活中也许做的事情暂时看不到成果，但是不要害怕，你不是没有成长，而是在扎根，人生没有白吃的苦，你吃过的苦都是为将来的幸福打下基础，人生没有白走的路，每一步都算数。</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="lx-navigation">
+	<div class="lx-cover prev lx-cover-sm" style="background-image: url(/images/footer_1.jpg)">
+		<div class="overlay"></div>
+		<a class="copy" href="#">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Next</span>
+						<h3>没有更新的文章</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+        <div class="lx-cover next lx-cover-sm" style="background-image: url(/images/footer_2.jpg)">
+		<div class="overlay"></div>
+		<a class="copy" href="#">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Prev</span>
+						<h3>没有更早的文章</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+</div>
+</div>
+
+<footer>
+  <div>
+  Copyright &copy; 2019.<a href="/">Hexo</a><br>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme <a href="https://lx.blleng.cn" target="_blank">Lx</a><br>
+  </div>
+</footer>
+</div>
+
+<button class="menu-trigger"></button>
+<div class="menu">
+  <div class="menu-head">
+    <span class="layer">
+      <div class="col">
+        <div class="row for-pic">
+          <div class="profile-pic">
+            <a href="/"><img src="/images/person_1.jpg" alt="John Doe"></a>
+          </div>
+        </div>
+        <div class="row for-name">
+          <p>John Doe</p>
+          <span class="tagline">Hello, World!</span>
+        </div>
+      </div>
+    </span>
+  </div>
+  <nav class="menu-container">
+  <ul class="menu-items">
+    <li><a href="/"><i class="fa fa-home fa-fw"></i>首页</a></li>
+    <li><a href="/archives/"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-bookmark fa-fw"></i>页面</span>
+        <ul>
+          <li><a href="/guestbook">留言</a></li>
+        <li><a href="/about">关于</a></li>
+        </ul>
+    </li>
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-link fa-fw"></i>友链</span>
+        <ul>
+          <li> <a href="https://lx.blleng.cn" target="_blank">Theme-Lx</a></li>
+        </ul>
+    </li>
+  </ul>
+  </nav>
+</div>
+
+<div class="gototop js-top">
+  <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
+</div>
+<script src="/js/jquery.easing.min.js"></script>
+<script src="/js/jquery.waypoints.min.js"></script>
+<script src="/js/jquery.stellar.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
